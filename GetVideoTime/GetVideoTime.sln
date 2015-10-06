@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetVideoTime.UI.WPF", "GetVideoTime.UI.WPF\GetVideoTime.UI.WPF.csproj", "{1D51D2CE-1A3E-426C-B2B7-1E283163602D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetVideoTime.UI.WinForm", "GetVideoTime.UI.WinForm\GetVideoTime.UI.WinForm.csproj", "{DA0DA2FF-5B2D-4C0E-BA7C-262501622B9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetVideoTime.DLL", "GetVideoTime.DLL\GetVideoTime.DLL.csproj", "{0EDE0BA4-DD4F-4AD4-B31F-AEB14B7F4A1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D51D2CE-1A3E-426C-B2B7-1E283163602D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D51D2CE-1A3E-426C-B2B7-1E283163602D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D51D2CE-1A3E-426C-B2B7-1E283163602D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1D51D2CE-1A3E-426C-B2B7-1E283163602D}.Debug|x86.Build.0 = Debug|Any CPU
+		{1D51D2CE-1A3E-426C-B2B7-1E283163602D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D51D2CE-1A3E-426C-B2B7-1E283163602D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D51D2CE-1A3E-426C-B2B7-1E283163602D}.Release|x86.ActiveCfg = Release|Any CPU
+		{1D51D2CE-1A3E-426C-B2B7-1E283163602D}.Release|x86.Build.0 = Release|Any CPU
+		{DA0DA2FF-5B2D-4C0E-BA7C-262501622B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0DA2FF-5B2D-4C0E-BA7C-262501622B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0DA2FF-5B2D-4C0E-BA7C-262501622B9F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DA0DA2FF-5B2D-4C0E-BA7C-262501622B9F}.Debug|x86.Build.0 = Debug|Any CPU
+		{DA0DA2FF-5B2D-4C0E-BA7C-262501622B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0DA2FF-5B2D-4C0E-BA7C-262501622B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0DA2FF-5B2D-4C0E-BA7C-262501622B9F}.Release|x86.ActiveCfg = Release|Any CPU
+		{DA0DA2FF-5B2D-4C0E-BA7C-262501622B9F}.Release|x86.Build.0 = Release|Any CPU
+		{0EDE0BA4-DD4F-4AD4-B31F-AEB14B7F4A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EDE0BA4-DD4F-4AD4-B31F-AEB14B7F4A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EDE0BA4-DD4F-4AD4-B31F-AEB14B7F4A1E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0EDE0BA4-DD4F-4AD4-B31F-AEB14B7F4A1E}.Debug|x86.Build.0 = Debug|Any CPU
+		{0EDE0BA4-DD4F-4AD4-B31F-AEB14B7F4A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EDE0BA4-DD4F-4AD4-B31F-AEB14B7F4A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EDE0BA4-DD4F-4AD4-B31F-AEB14B7F4A1E}.Release|x86.ActiveCfg = Release|Any CPU
+		{0EDE0BA4-DD4F-4AD4-B31F-AEB14B7F4A1E}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

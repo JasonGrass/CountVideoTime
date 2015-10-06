@@ -1,0 +1,27 @@
+﻿<Window x:Class="GetVideoTime.UI.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GetVideoTime.UI.WPF"
+        mc:Ignorable="d"
+        Title="视频文件时间统计工具" Height="400" Width="800" ResizeMode="NoResize" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="video_collection_72px_1182337_easyicon.net.ico">
+    <Grid>
+        <Label Content="路径" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="lbDir" VerticalAlignment="Top" />
+        <TextBox Background="LavenderBlush" Height="23" HorizontalAlignment="Left" Margin="75,14,0,0" Name="txtDir" VerticalAlignment="Top" Width="416" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="497,14,0,0" Name="cmbStyle" VerticalAlignment="Top" Width="107" />
+        <Button Content="打开" Height="23" HorizontalAlignment="Left" Margin="618,14,0,0" Name="btnOpen" VerticalAlignment="Top" Width="75" Click="btnOpen_Click" />
+        <Button Content="统计" Height="23" HorizontalAlignment="Right" Margin="0,14,12,0" Name="btnRead" VerticalAlignment="Top" Width="75" Click="btnRead_Click" />
+
+        <TextBox ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="True" Background="LightBlue" Height="256" HorizontalAlignment="Left" Margin="12,56,0,0" Name="txtVideoInfo" VerticalAlignment="Top" Width="760" />
+        <Label Content="计数" Height="28" HorizontalAlignment="Left" Margin="12,327,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,332,0,0" Name="txtbCount" Text="0" VerticalAlignment="Top" />
+        <Label Content="总时间" Height="28" HorizontalAlignment="Left" Margin="167,327,0,0" Name="label2" VerticalAlignment="Top" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="231,332,0,0" Name="txtbToatalTime" Text="00:00:00" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.472" />
+
+        <ProgressBar Visibility="Collapsed" IsIndeterminate="True" Height="15" HorizontalAlignment="Left" Margin="557,332,0,0" Name="pBarReading" VerticalAlignment="Top" Width="209" IsEnabled="True" />
+        <Label x:Name="label" Content="总大小" HorizontalAlignment="Left" Margin="366,327,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.08,0.526"/>
+        <Label x:Name="lbTotalLength" Content="0Byte" HorizontalAlignment="Left" Margin="417,327,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-0.958"/>
+
+    </Grid>
+</Window>
