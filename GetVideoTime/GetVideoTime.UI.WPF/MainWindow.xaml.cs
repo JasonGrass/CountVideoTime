@@ -109,6 +109,7 @@ namespace GetVideoTime.UI.WPF
 
         private void ShowVideosInfo(GetVidoeTimes getTimes)
         {
+            /*
             txtVideoInfo.Text = "";
             foreach (string str in getTimes.MediaFilesInfo)
             {
@@ -120,6 +121,7 @@ namespace GetVideoTime.UI.WPF
                 getTimes.TotalTimeCount.Minutes.ToString("00") + "m " +
                 getTimes.TotalTimeCount.Seconds.ToString("00") + "s";
             lbTotalLength.Content = (((double)getTimes.TotalLength / (1024 * 1024))).ToString("F2") + "M";
+                */
         }
 
         private void ReadFile(object obj)
@@ -147,6 +149,8 @@ namespace GetVideoTime.UI.WPF
                 btnRead.IsEnabled = true;
                 cmbStyle.IsEnabled = true;
             }));
+
+            
         }
 
     }

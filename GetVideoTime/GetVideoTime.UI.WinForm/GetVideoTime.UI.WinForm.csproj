@@ -12,7 +12,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -37,6 +38,9 @@
     <ApplicationIcon>video_collection_72px_1182337_easyicon.net.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSkin">
+      <HintPath>..\..\..\LibraryManagement\LibraryManager\CSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -85,6 +89,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="video_collection_72px_1182337_easyicon.net.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GetVideoTime.DLL\GetVideoTime.DLL.csproj">
+      <Project>{0ede0ba4-dd4f-4ad4-b31f-aeb14b7f4a1e}</Project>
+      <Name>GetVideoTime.DLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

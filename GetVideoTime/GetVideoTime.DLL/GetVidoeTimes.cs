@@ -29,9 +29,21 @@ namespace GetVideoTime.DLL
         /// </summary>
         public long TotalLength { get; private set; }
 
-        public List<string> MediaFilesInfo = new List<string>();
+        /// <summary>
+        /// 文件列表
+        /// </summary>
+        public List<VideoInfo> TotalVideoInfos = new List<VideoInfo>();
+
+        /// <summary>
+        /// 总时间
+        /// </summary>
         public TimeSpan TotalTimeCount;
+
+        /// <summary>
+        /// 文件计数
+        /// </summary>
         public int FileCount;
+
 
         private TimeSpan GetSingleMediaTime(string filePath)
         {
@@ -42,7 +54,7 @@ namespace GetVideoTime.DLL
             string d = media.Get(MediaInfoDLL.StreamKind.General, 0, "Duration");
             if (d == "")
                 return new TimeSpan(0);
-            return new TimeSpan((long.Parse(d)*10000));
+            return new TimeSpan((Int64.Parse(d)*10000));
         }
 
         /// <summary>
@@ -106,9 +118,16 @@ namespace GetVideoTime.DLL
             TimeSpan ts = GetSingleMediaTime(fileInfo.FullName);
             if (ts.Milliseconds != 0)
             {
-                string str = Math.Floor(ts.TotalHours).ToString("00") + ":" + ts.Minutes.ToString("00") + ":" + ts.Seconds.ToString("00")
-                    + "  " + fileInfo.Name + "  " + (((double)fileInfo.Length)/(1024*1024)).ToString("F2") +"M" ;
-                this.MediaFilesInfo.Add(str);
+                
+                VideoInfo info = new VideoInfo()
+                {
+                    FileName = fileInfo.Name,
+                    FilePath = Path.GetFullPath(fileInfo.FullName),
+                    VideoTime = Math.Floor(ts.TotalHours).ToString("00") + ":" + ts.Minutes.ToString("00") + ":" + ts.Seconds.ToString("00"),
+                    FileSize = (((double)fileInfo.Length) / (1024 * 1024)).ToString("F2") + "M"
+                };
+
+                TotalVideoInfos.Add(info);
                 this.TotalTimeCount = TotalTimeCount.Add(ts);
                 FileCount += 1;
                 TotalLength += fileInfo.Length;
@@ -131,6 +150,5 @@ namespace GetVideoTime.DLL
                 default: return false;
             }
         }
-
     }
 }
