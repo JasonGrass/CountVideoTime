@@ -37,9 +37,12 @@
   <PropertyGroup>
     <ApplicationIcon>video_collection_72px_1182337_easyicon.net.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSkin">
-      <HintPath>..\..\..\LibraryManagement\LibraryManager\CSkin.dll</HintPath>
+      <HintPath>..\CSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

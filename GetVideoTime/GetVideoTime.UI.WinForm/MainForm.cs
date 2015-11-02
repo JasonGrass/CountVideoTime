@@ -32,15 +32,15 @@ namespace GetVideoTime.UI.WinForm
         }
 
         private void btnOK_Click(object sender, EventArgs e)
-        {
-            dgvResult.Visible = false;
-            processBar.Visible = true;
-
+        {        
             if (!Directory.Exists(txtPath.Text))
             {
                 MessageBox.Show("路径不存在", "读取文件夹出错", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            dgvResult.Visible = false;
+            processBar.Visible = true;
 
             GetVidoeTimes getTimes = new GetVidoeTimes(txtPath.Text);
             System.Threading.ThreadPool.QueueUserWorkItem(ReadFile, getTimes);
@@ -49,6 +49,10 @@ namespace GetVideoTime.UI.WinForm
             btnOK.Visible = false;
             btnClear.Visible = false;
             processBar.Visible = true;
+
+            lbCount.Text = string.Empty;
+            lbTotalSize.Text = string.Empty;
+            lbTotalTime.Text = string.Empty;
         }
 
         private void ReadFile(object o)
@@ -98,7 +102,9 @@ namespace GetVideoTime.UI.WinForm
             };
             tipBtn.SetToolTip(btnOpenDir, "打开文件夹");
             tipBtn.SetToolTip(btnOK, "开始统计");
-            tipBtn.SetToolTip(btnClear, "清除");
+            tipBtn.SetToolTip(btnClear, "清除路径");
+
+            txtPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         }
 
         private DataTable dgvDataSource;
@@ -116,11 +122,14 @@ namespace GetVideoTime.UI.WinForm
             dgvResult.AllowUserToDeleteRows = false;
             dgvResult.AllowUserToResizeRows = false;
             dgvResult.ReadOnly = true;
+            dgvResult.MultiSelect = false;
+            dgvResult.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            dgvResult.Columns[0].Width = 150;
+            dgvResult.Columns[0].Width = 130;
             dgvResult.Columns[1].Width = 383;
             dgvResult.Columns[2].Width = 60;
             dgvResult.Columns[3].Width = 60;
+            dgvResult.RowHeadersWidth = 46;
 
             // 显示行号
             dgvResult.RowStateChanged += (o, args) =>
@@ -134,7 +143,43 @@ namespace GetVideoTime.UI.WinForm
                 }
             };
 
+            // 右键菜单       
+            dgvResult.CellMouseDown += (sender, e) =>
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    if (e.RowIndex >= 0)
+                    {
+                        //若行已是选中状态就不再进行设置
+                        if (dgvResult.Rows[e.RowIndex].Selected == false)
+                        {
+                            dgvResult.ClearSelection();
+                            dgvResult.Rows[e.RowIndex].Selected = true;
+                        }
+                        //弹出操作菜单
+                        contextMenuStrip.Show(MousePosition.X, MousePosition.Y);
+                    }
+                }
+            };
         }
 
+        
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtPath.Clear();
+        }
+
+        private void menuItemOpenPath_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgvResult.SelectedRows[0];
+            System.Diagnostics.Process.Start(Path.GetDirectoryName(row.Cells[1].Value.ToString()));
+        }
+
+        private void menuItemOpenFile_Click(object sender, EventArgs e)
+        {          
+            DataGridViewRow row = dgvResult.SelectedRows[0];
+            System.Diagnostics.Process.Start(row.Cells[1].Value.ToString());
+        }
     }
 }

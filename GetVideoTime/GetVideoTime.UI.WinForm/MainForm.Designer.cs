@@ -42,7 +42,11 @@
             this.lbTotalTime = new CCWin.SkinControl.SkinLabel();
             this.lbTotalSize = new CCWin.SkinControl.SkinLabel();
             this.dgvResult = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
+            this.menuItemOpenFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemOpenPath = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // skinLabel1
@@ -62,7 +66,7 @@
             this.txtPath.Location = new System.Drawing.Point(45, 39);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(471, 21);
-            this.txtPath.TabIndex = 1;
+            this.txtPath.TabIndex = 0;
             // 
             // btnOpenDir
             // 
@@ -75,7 +79,7 @@
             this.btnOpenDir.Location = new System.Drawing.Point(533, 31);
             this.btnOpenDir.Name = "btnOpenDir";
             this.btnOpenDir.Size = new System.Drawing.Size(32, 32);
-            this.btnOpenDir.TabIndex = 2;
+            this.btnOpenDir.TabIndex = 1;
             this.btnOpenDir.UseVisualStyleBackColor = false;
             this.btnOpenDir.Click += new System.EventHandler(this.btnOpenDir_Click);
             // 
@@ -105,8 +109,9 @@
             this.btnClear.Location = new System.Drawing.Point(631, 31);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(32, 32);
-            this.btnClear.TabIndex = 2;
+            this.btnClear.TabIndex = 3;
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // processBar
             // 
@@ -128,7 +133,7 @@
             this.skinLabel2.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel2.BorderColor = System.Drawing.Color.White;
             this.skinLabel2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel2.Location = new System.Drawing.Point(376, 345);
+            this.skinLabel2.Location = new System.Drawing.Point(368, 345);
             this.skinLabel2.Name = "skinLabel2";
             this.skinLabel2.Size = new System.Drawing.Size(32, 17);
             this.skinLabel2.TabIndex = 5;
@@ -164,7 +169,7 @@
             this.lbCount.BackColor = System.Drawing.Color.Transparent;
             this.lbCount.BorderColor = System.Drawing.Color.White;
             this.lbCount.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbCount.Location = new System.Drawing.Point(411, 345);
+            this.lbCount.Location = new System.Drawing.Point(402, 345);
             this.lbCount.Name = "lbCount";
             this.lbCount.Size = new System.Drawing.Size(15, 17);
             this.lbCount.TabIndex = 5;
@@ -176,7 +181,7 @@
             this.lbTotalTime.BackColor = System.Drawing.Color.Transparent;
             this.lbTotalTime.BorderColor = System.Drawing.Color.White;
             this.lbTotalTime.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbTotalTime.Location = new System.Drawing.Point(488, 345);
+            this.lbTotalTime.Location = new System.Drawing.Point(487, 345);
             this.lbTotalTime.Name = "lbTotalTime";
             this.lbTotalTime.Size = new System.Drawing.Size(56, 17);
             this.lbTotalTime.TabIndex = 5;
@@ -188,7 +193,7 @@
             this.lbTotalSize.BackColor = System.Drawing.Color.Transparent;
             this.lbTotalSize.BorderColor = System.Drawing.Color.White;
             this.lbTotalSize.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbTotalSize.Location = new System.Drawing.Point(629, 345);
+            this.lbTotalSize.Location = new System.Drawing.Point(624, 345);
             this.lbTotalSize.Name = "lbTotalSize";
             this.lbTotalSize.Size = new System.Drawing.Size(44, 17);
             this.lbTotalSize.TabIndex = 5;
@@ -201,7 +206,52 @@
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.RowTemplate.Height = 23;
             this.dgvResult.Size = new System.Drawing.Size(696, 276);
-            this.dgvResult.TabIndex = 6;
+            this.dgvResult.TabIndex = 4;
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Arrow = System.Drawing.Color.Black;
+            this.contextMenuStrip.Back = System.Drawing.Color.White;
+            this.contextMenuStrip.BackRadius = 4;
+            this.contextMenuStrip.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
+            this.contextMenuStrip.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.contextMenuStrip.Fore = System.Drawing.Color.Black;
+            this.contextMenuStrip.HoverFore = System.Drawing.Color.White;
+            this.contextMenuStrip.ItemAnamorphosis = true;
+            this.contextMenuStrip.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.contextMenuStrip.ItemBorderShow = true;
+            this.contextMenuStrip.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.contextMenuStrip.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.contextMenuStrip.ItemRadius = 4;
+            this.contextMenuStrip.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemOpenFile,
+            this.menuItemOpenPath});
+            this.contextMenuStrip.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.contextMenuStrip.Size = new System.Drawing.Size(137, 48);
+            this.contextMenuStrip.SkinAllColor = true;
+            this.contextMenuStrip.TitleAnamorphosis = true;
+            this.contextMenuStrip.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
+            this.contextMenuStrip.TitleRadius = 4;
+            this.contextMenuStrip.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // menuItemOpenFile
+            // 
+            this.menuItemOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("menuItemOpenFile.Image")));
+            this.menuItemOpenFile.Name = "menuItemOpenFile";
+            this.menuItemOpenFile.Size = new System.Drawing.Size(152, 22);
+            this.menuItemOpenFile.Text = "播放该视频";
+            this.menuItemOpenFile.Click += new System.EventHandler(this.menuItemOpenFile_Click);
+            // 
+            // menuItemOpenPath
+            // 
+            this.menuItemOpenPath.Image = ((System.Drawing.Image)(resources.GetObject("menuItemOpenPath.Image")));
+            this.menuItemOpenPath.Name = "menuItemOpenPath";
+            this.menuItemOpenPath.Size = new System.Drawing.Size(152, 22);
+            this.menuItemOpenPath.Text = "打开此路径";
+            this.menuItemOpenPath.Click += new System.EventHandler(this.menuItemOpenPath_Click);
             // 
             // MainForm
             // 
@@ -237,6 +287,7 @@
             this.Text = "视频文件时间统计";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +308,8 @@
         private CCWin.SkinControl.SkinLabel lbTotalTime;
         private CCWin.SkinControl.SkinLabel lbTotalSize;
         private System.Windows.Forms.DataGridView dgvResult;
+        private CCWin.SkinControl.SkinContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem menuItemOpenFile;
+        private System.Windows.Forms.ToolStripMenuItem menuItemOpenPath;
     }
 }
