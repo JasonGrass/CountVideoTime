@@ -72,19 +72,69 @@ namespace GetVideoTime.UI.WinForm
                 btnOK.Visible = true;
                 btnClear.Visible = true;
             }));
-
-            //MessageBox.Show("久等啦，\n我读取完毕啦", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void SetDataGridView(List<VideoInfo> infos )
+        private void SetDataGridView(List<VideoInfo> infos)
         {
-            
+            dgvDataSource.Rows.Clear();
+            foreach (VideoInfo videoInfo in infos)
+            {
+                dgvDataSource.Rows.Add(videoInfo.FileName, videoInfo.FilePath, videoInfo.VideoTime, videoInfo.FileSize);
+            }        
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             processBar.Visible = false;
             dgvResult.Visible = false;
+            Init();
+
+            ToolTip tipBtn = new ToolTip
+            {
+                AutoPopDelay = 2000,
+                InitialDelay = 200,
+                ReshowDelay = 200,
+                ShowAlways = true
+            };
+            tipBtn.SetToolTip(btnOpenDir, "打开文件夹");
+            tipBtn.SetToolTip(btnOK, "开始统计");
+            tipBtn.SetToolTip(btnClear, "清除");
         }
+
+        private DataTable dgvDataSource;
+        private void Init()
+        {
+            dgvDataSource = new DataTable();
+            DataColumn dcName = new DataColumn("文件名");
+            DataColumn dcPath = new DataColumn("路径");
+            DataColumn dcTime = new DataColumn("时间");
+            DataColumn dcSize = new DataColumn("大小");
+            dgvDataSource.Columns.AddRange(new[] { dcName, dcPath, dcTime, dcSize });
+            dgvResult.DataSource = dgvDataSource;
+
+            dgvResult.AllowUserToAddRows = false;
+            dgvResult.AllowUserToDeleteRows = false;
+            dgvResult.AllowUserToResizeRows = false;
+            dgvResult.ReadOnly = true;
+
+            dgvResult.Columns[0].Width = 150;
+            dgvResult.Columns[1].Width = 383;
+            dgvResult.Columns[2].Width = 60;
+            dgvResult.Columns[3].Width = 60;
+
+            // 显示行号
+            dgvResult.RowStateChanged += (o, args) =>
+            {
+                try
+                {
+                    args.Row.HeaderCell.Value = string.Format("{0}", args.Row.Index + 1);
+                }
+                catch (Exception)
+                {
+                }
+            };
+
+        }
+
     }
 }

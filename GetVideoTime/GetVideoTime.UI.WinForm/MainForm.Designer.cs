@@ -29,15 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.skinLabel1 = new CCWin.SkinControl.SkinLabel();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.btnOpenDir = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.dgvResult = new CCWin.SkinControl.SkinDataGridView();
             this.processBar = new CCWin.SkinControl.ProgressIndicator();
             this.skinLabel2 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel3 = new CCWin.SkinControl.SkinLabel();
@@ -45,6 +41,7 @@
             this.lbCount = new CCWin.SkinControl.SkinLabel();
             this.lbTotalTime = new CCWin.SkinControl.SkinLabel();
             this.lbTotalSize = new CCWin.SkinControl.SkinLabel();
+            this.dgvResult = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,49 +108,13 @@
             this.btnClear.TabIndex = 2;
             this.btnClear.UseVisualStyleBackColor = false;
             // 
-            // dgvResult
-            // 
-            this.dgvResult.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
-            this.dgvResult.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvResult.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvResult.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvResult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResult.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResult.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvResult.EnableHeadersVisualStyles = false;
-            this.dgvResult.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.dgvResult.Location = new System.Drawing.Point(7, 69);
-            this.dgvResult.Name = "dgvResult";
-            this.dgvResult.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvResult.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvResult.RowTemplate.Height = 23;
-            this.dgvResult.Size = new System.Drawing.Size(696, 273);
-            this.dgvResult.TabIndex = 3;
-            // 
             // processBar
             // 
             this.processBar.AutoStart = true;
             this.processBar.BackColor = System.Drawing.Color.Transparent;
             this.processBar.CircleColor = System.Drawing.Color.Brown;
             this.processBar.CircleSize = 0.5F;
-            this.processBar.Location = new System.Drawing.Point(245, 104);
+            this.processBar.Location = new System.Drawing.Point(245, 93);
             this.processBar.Name = "processBar";
             this.processBar.NumberOfCircles = 20;
             this.processBar.Percentage = 0F;
@@ -179,7 +140,7 @@
             this.skinLabel3.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel3.BorderColor = System.Drawing.Color.White;
             this.skinLabel3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel3.Location = new System.Drawing.Point(446, 345);
+            this.skinLabel3.Location = new System.Drawing.Point(439, 345);
             this.skinLabel3.Name = "skinLabel3";
             this.skinLabel3.Size = new System.Drawing.Size(44, 17);
             this.skinLabel3.TabIndex = 5;
@@ -203,7 +164,7 @@
             this.lbCount.BackColor = System.Drawing.Color.Transparent;
             this.lbCount.BorderColor = System.Drawing.Color.White;
             this.lbCount.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbCount.Location = new System.Drawing.Point(414, 345);
+            this.lbCount.Location = new System.Drawing.Point(411, 345);
             this.lbCount.Name = "lbCount";
             this.lbCount.Size = new System.Drawing.Size(15, 17);
             this.lbCount.TabIndex = 5;
@@ -215,7 +176,7 @@
             this.lbTotalTime.BackColor = System.Drawing.Color.Transparent;
             this.lbTotalTime.BorderColor = System.Drawing.Color.White;
             this.lbTotalTime.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbTotalTime.Location = new System.Drawing.Point(496, 345);
+            this.lbTotalTime.Location = new System.Drawing.Point(488, 345);
             this.lbTotalTime.Name = "lbTotalTime";
             this.lbTotalTime.Size = new System.Drawing.Size(56, 17);
             this.lbTotalTime.TabIndex = 5;
@@ -233,6 +194,15 @@
             this.lbTotalSize.TabIndex = 5;
             this.lbTotalSize.Text = "0.00M";
             // 
+            // dgvResult
+            // 
+            this.dgvResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResult.Location = new System.Drawing.Point(7, 66);
+            this.dgvResult.Name = "dgvResult";
+            this.dgvResult.RowTemplate.Height = 23;
+            this.dgvResult.Size = new System.Drawing.Size(696, 276);
+            this.dgvResult.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -243,6 +213,7 @@
             this.CloseDownBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseDownBack")));
             this.CloseMouseBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseMouseBack")));
             this.CloseNormlBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseNormlBack")));
+            this.Controls.Add(this.dgvResult);
             this.Controls.Add(this.skinLabel4);
             this.Controls.Add(this.skinLabel3);
             this.Controls.Add(this.lbTotalSize);
@@ -250,7 +221,6 @@
             this.Controls.Add(this.lbCount);
             this.Controls.Add(this.skinLabel2);
             this.Controls.Add(this.processBar);
-            this.Controls.Add(this.dgvResult);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnOpenDir);
@@ -279,7 +249,6 @@
         private System.Windows.Forms.Button btnOpenDir;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnClear;
-        private CCWin.SkinControl.SkinDataGridView dgvResult;
         private CCWin.SkinControl.ProgressIndicator processBar;
         private CCWin.SkinControl.SkinLabel skinLabel2;
         private CCWin.SkinControl.SkinLabel skinLabel3;
@@ -287,5 +256,6 @@
         private CCWin.SkinControl.SkinLabel lbCount;
         private CCWin.SkinControl.SkinLabel lbTotalTime;
         private CCWin.SkinControl.SkinLabel lbTotalSize;
+        private System.Windows.Forms.DataGridView dgvResult;
     }
 }
