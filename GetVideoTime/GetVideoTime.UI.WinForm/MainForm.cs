@@ -114,7 +114,7 @@ namespace GetVideoTime.UI.WinForm
             DataColumn dcName = new DataColumn("文件名");
             DataColumn dcPath = new DataColumn("路径");
             DataColumn dcTime = new DataColumn("时间");
-            DataColumn dcSize = new DataColumn("大小");
+            DataColumn dcSize = new DataColumn("大小") {DataType = typeof (FileSize)};
             dgvDataSource.Columns.AddRange(new[] { dcName, dcPath, dcTime, dcSize });
             dgvResult.DataSource = dgvDataSource;
 
@@ -163,8 +163,6 @@ namespace GetVideoTime.UI.WinForm
             };
         }
 
-        
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtPath.Clear();
@@ -180,6 +178,13 @@ namespace GetVideoTime.UI.WinForm
         {          
             DataGridViewRow row = dgvResult.SelectedRows[0];
             System.Diagnostics.Process.Start(row.Cells[1].Value.ToString());
+        }
+
+        private void lbSupport_Click(object sender, EventArgs e)
+        {
+            // 查看支持的格式
+            MessageBox.Show("avi、mp4、wmv、3gp \nrmvb、rm、mpg、mkv、flv", "信息", 
+                MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 }

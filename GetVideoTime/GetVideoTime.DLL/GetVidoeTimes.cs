@@ -117,14 +117,13 @@ namespace GetVideoTime.DLL
         {
             TimeSpan ts = GetSingleMediaTime(fileInfo.FullName);
             if (ts.Milliseconds != 0)
-            {
-                
+            {            
                 VideoInfo info = new VideoInfo()
                 {
                     FileName = fileInfo.Name,
                     FilePath = Path.GetFullPath(fileInfo.FullName),
                     VideoTime = Math.Floor(ts.TotalHours).ToString("00") + ":" + ts.Minutes.ToString("00") + ":" + ts.Seconds.ToString("00"),
-                    FileSize = (((double)fileInfo.Length) / (1024 * 1024)).ToString("F2") + "M"
+                    FileSize = new FileSize((((double)fileInfo.Length) / (1024 * 1024)))
                 };
 
                 TotalVideoInfos.Add(info);

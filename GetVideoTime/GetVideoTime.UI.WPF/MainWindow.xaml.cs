@@ -109,19 +109,6 @@ namespace GetVideoTime.UI.WPF
 
         private void ShowVideosInfo(GetVidoeTimes getTimes)
         {
-            /*
-            txtVideoInfo.Text = "";
-            foreach (string str in getTimes.MediaFilesInfo)
-            {
-                txtVideoInfo.AppendText(str + "\n");
-            }
-            txtbCount.Text = getTimes.FileCount.ToString();
-            txtbToatalTime.Text =
-                Math.Floor(getTimes.TotalTimeCount.TotalHours).ToString("00") + "h " +
-                getTimes.TotalTimeCount.Minutes.ToString("00") + "m " +
-                getTimes.TotalTimeCount.Seconds.ToString("00") + "s";
-            lbTotalLength.Content = (((double)getTimes.TotalLength / (1024 * 1024))).ToString("F2") + "M";
-                */
         }
 
         private void ReadFile(object obj)

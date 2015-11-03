@@ -45,6 +45,7 @@
             this.contextMenuStrip = new CCWin.SkinControl.SkinContextMenuStrip();
             this.menuItemOpenFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemOpenPath = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbSupport = new CCWin.SkinControl.SkinLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -241,7 +242,7 @@
             // 
             this.menuItemOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("menuItemOpenFile.Image")));
             this.menuItemOpenFile.Name = "menuItemOpenFile";
-            this.menuItemOpenFile.Size = new System.Drawing.Size(152, 22);
+            this.menuItemOpenFile.Size = new System.Drawing.Size(136, 22);
             this.menuItemOpenFile.Text = "播放该视频";
             this.menuItemOpenFile.Click += new System.EventHandler(this.menuItemOpenFile_Click);
             // 
@@ -249,9 +250,23 @@
             // 
             this.menuItemOpenPath.Image = ((System.Drawing.Image)(resources.GetObject("menuItemOpenPath.Image")));
             this.menuItemOpenPath.Name = "menuItemOpenPath";
-            this.menuItemOpenPath.Size = new System.Drawing.Size(152, 22);
+            this.menuItemOpenPath.Size = new System.Drawing.Size(136, 22);
             this.menuItemOpenPath.Text = "打开此路径";
             this.menuItemOpenPath.Click += new System.EventHandler(this.menuItemOpenPath_Click);
+            // 
+            // lbSupport
+            // 
+            this.lbSupport.AutoSize = true;
+            this.lbSupport.BackColor = System.Drawing.Color.Transparent;
+            this.lbSupport.BorderColor = System.Drawing.Color.White;
+            this.lbSupport.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbSupport.ForeColor = System.Drawing.Color.Maroon;
+            this.lbSupport.Location = new System.Drawing.Point(7, 345);
+            this.lbSupport.Name = "lbSupport";
+            this.lbSupport.Size = new System.Drawing.Size(92, 17);
+            this.lbSupport.TabIndex = 6;
+            this.lbSupport.Text = "查看支持的格式";
+            this.lbSupport.Click += new System.EventHandler(this.lbSupport_Click);
             // 
             // MainForm
             // 
@@ -263,6 +278,7 @@
             this.CloseDownBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseDownBack")));
             this.CloseMouseBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseMouseBack")));
             this.CloseNormlBack = ((System.Drawing.Image)(resources.GetObject("$this.CloseNormlBack")));
+            this.Controls.Add(this.lbSupport);
             this.Controls.Add(this.dgvResult);
             this.Controls.Add(this.skinLabel4);
             this.Controls.Add(this.skinLabel3);
@@ -311,5 +327,6 @@
         private CCWin.SkinControl.SkinContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuItemOpenFile;
         private System.Windows.Forms.ToolStripMenuItem menuItemOpenPath;
+        private CCWin.SkinControl.SkinLabel lbSupport;
     }
 }
